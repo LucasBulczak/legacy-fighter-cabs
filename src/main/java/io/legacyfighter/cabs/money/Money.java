@@ -1,8 +1,10 @@
 package io.legacyfighter.cabs.money;
 
+import javax.persistence.Embeddable;
 import java.util.Locale;
 import java.util.Objects;
 
+@Embeddable
 public class Money {
 
     public static final Money ZERO = new Money(0);
@@ -11,6 +13,8 @@ public class Money {
     public Money(Integer value) {
         this.value = value;
     }
+
+    public Money() { }
 
     public Money add(Money other) {
         return new Money(value + other.value);

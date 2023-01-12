@@ -71,7 +71,7 @@ public class TransitDTO {
         distance = transit.getKm();
         factor = transit.factor;
         if (transit.getPrice() != null) {
-            price = new BigDecimal(transit.getPrice());
+            price = new BigDecimal(transit.getPrice().toInt());
         }
         date = transit.getDateTime();
         status = transit.getStatus();

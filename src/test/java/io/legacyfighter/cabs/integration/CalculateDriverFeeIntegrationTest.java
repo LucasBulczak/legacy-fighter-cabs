@@ -4,6 +4,7 @@ import io.legacyfighter.cabs.entity.Driver;
 import io.legacyfighter.cabs.entity.DriverFee;
 import io.legacyfighter.cabs.entity.Transit;
 
+import io.legacyfighter.cabs.money.Money;
 import io.legacyfighter.cabs.repository.DriverFeeRepository;
 import io.legacyfighter.cabs.repository.TransitRepository;
 import io.legacyfighter.cabs.service.DriverFeeService;
@@ -99,7 +100,7 @@ class CalculateDriverFeeIntegrationTest {
 
     Transit aTransit(Driver driver, Integer price) {
         Transit transit = new Transit();
-        transit.setPrice(price);
+        transit.setPrice(new Money(price));
         transit.setDriver(driver);
         transit.setDateTime(LocalDate.of(2020,10,20).atStartOfDay().toInstant(ZoneOffset.UTC));
         return transitRepository.save(transit);

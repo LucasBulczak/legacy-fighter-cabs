@@ -26,7 +26,7 @@ public class DriverFeeService {
         if (transit.getDriversFee() != null) {
             return transit.getDriversFee();
         }
-        Integer transitPrice = transit.getPrice();
+        Integer transitPrice = transit.getPrice().toInt();
         DriverFee driverFee = driverFeeRepository.findByDriver(transit.getDriver());
         if (driverFee == null) {
             throw new IllegalArgumentException("driver Fees not defined for driver, driver id = " + transit.getDriver().getId());

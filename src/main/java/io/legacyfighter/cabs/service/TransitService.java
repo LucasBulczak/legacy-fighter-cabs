@@ -480,7 +480,7 @@ public class TransitService {
             driverRepository.save(driver);
             awardsService.registerMiles(transit.getClient().getId(), transitId);
             transitRepository.save(transit);
-            invoiceGenerator.generate(transit.getPrice(), transit.getClient().getName() + " " + transit.getClient().getLastName());
+            invoiceGenerator.generate(transit.getPrice().toInt(), transit.getClient().getName() + " " + transit.getClient().getLastName());
         } else {
             throw new IllegalArgumentException("Cannot complete Transit, id = " + transitId);
         }
